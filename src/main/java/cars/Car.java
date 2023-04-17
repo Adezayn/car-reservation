@@ -6,6 +6,22 @@ enum TRANSMISSIONTYPE {
     AUTOMATIC, MANUAL
 }
 public class Car {
+    @Override
+    public String toString() {
+        return "Car{" +
+                 id +
+                ". name='" + name + '\'' +
+                ", yearMade='" + yearMade + '\'' +
+                ",\n fuelType='" + fuelType + '\'' +
+                ", model='" + model + '\'' +
+                ", transmissionType=" + transmissionType +
+                ",\n passangersCapacity=" + passangersCapacity +
+                ", isAC=" + isAC +
+                ", isBooked=" + isBooked +
+                ", costOfRentalPerHour=" + costOfRentalPerHour +
+                '}';
+    }
+
     private int id;
     private String name;
     private String yearMade;

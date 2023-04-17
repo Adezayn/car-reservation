@@ -3,20 +3,44 @@ package main.java.cars;
 import java.time.LocalDate;
 
 
-enum RENTALSTTAUS{
-    CANCELLED, RENTAL, OPEN
+enum RENTAL_STATUS{
+    CANCELLED, RENTED, OPEN, RETURNED
 }
 
 public class Reservations {
-    private int id;
+    private long id;
     private Customer customer;
     private Car car;
     private LocalDate pickupDate;
     private LocalDate dropoffDate;
-    private int totalUsageDays;
-    private RENTALSTTAUS status;
+    private long totalUsageDays;
 
-    public int getId() {
+    public Reservations(long id, Customer customer, Car car, LocalDate pickupDate, LocalDate dropoffDate, int totalUsageDays, RENTAL_STATUS status) {
+        this.id = id;
+        this.customer = customer;
+        this.car = car;
+        this.pickupDate = pickupDate;
+        this.dropoffDate = dropoffDate;
+        this.totalUsageDays = totalUsageDays;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservations{" +
+                "id=" + id +
+                ", customer=" + customer +
+                ",\n car=" + car +
+                ",\n pickupDate=" + pickupDate +
+                ",dropoffDate=" + dropoffDate +
+                ",totalUsageDays=" + totalUsageDays +
+                ", status=" + status +
+                '}' + "\n";
+    }
+
+    private RENTAL_STATUS status;
+
+    public long getId() {
         return id;
     }
 
@@ -56,7 +80,7 @@ public class Reservations {
         this.dropoffDate = dropoffDate;
     }
 
-    public int getTotalUsageDays() {
+    public long getTotalUsageDays() {
         return totalUsageDays;
     }
 
@@ -64,11 +88,11 @@ public class Reservations {
         this.totalUsageDays = totalUsageDays;
     }
 
-    public RENTALSTTAUS getStatus() {
+    public RENTAL_STATUS getStatus() {
         return status;
     }
 
-    public void setStatus(RENTALSTTAUS status) {
+    public void setStatus(RENTAL_STATUS status) {
         this.status = status;
     }
 }
